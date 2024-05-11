@@ -39,6 +39,22 @@ pub fn get_targets() -> Vec<Target> {
         let target = Target {
             id: display.display_id,
             title,
+            target_type: super::TargetType::Display,
+        };
+
+        targets.push(target);
+    }
+
+    let windows = content.windows;
+
+    for window in windows {
+        // println!("Window: {:?}", window);
+        let title = window.title.unwrap_or_else(|| "Unknown window".to_string());
+
+        let target = Target {
+            id: window.window_id,
+            title,
+            target_type: super::TargetType::Window,
         };
 
         targets.push(target);

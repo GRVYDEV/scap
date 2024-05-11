@@ -55,7 +55,11 @@ pub fn get_targets() -> Vec<Target> {
         // let title = get_monitor_name(display.as_raw_hmonitor()).unwrap();
         let title = "Display 1".into();
 
-        let target = Target { id, title };
+        let target = Target {
+            id,
+            title,
+            target_type: super::TargetType::Display,
+        };
         targets.push(target);
     }
 
@@ -65,7 +69,11 @@ pub fn get_targets() -> Vec<Target> {
 
         let title = window.title().unwrap().to_string();
 
-        let target = Target { id: 3, title };
+        let target = Target {
+            id: 3,
+            title,
+            target_type: super::TargetType::Window,
+        };
         targets.push(target);
     }
 

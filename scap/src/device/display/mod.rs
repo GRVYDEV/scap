@@ -11,6 +11,13 @@ mod linux;
 pub struct Target {
     pub title: String,
     pub id: u32,
+    pub target_type: TargetType,
+}
+
+#[derive(Debug, Clone)]
+pub enum TargetType {
+    Display,
+    Window,
 }
 
 /// Checks if process has permission to capture the screen
