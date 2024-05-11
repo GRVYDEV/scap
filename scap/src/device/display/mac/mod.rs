@@ -48,7 +48,10 @@ pub fn get_targets() -> Vec<Target> {
     let windows = content.windows;
 
     for window in windows {
-        // println!("Window: {:?}", window);
+        if !window.is_active {
+            continue;
+        }
+
         let title = window.title.unwrap_or_else(|| "Unknown window".to_string());
 
         let target = Target {
